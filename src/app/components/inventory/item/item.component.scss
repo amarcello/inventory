@@ -1,0 +1,23 @@
+.card {
+    &.disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+    &-block {
+        & + & {
+            padding-top: 0;
+        }
+        [type="number"] {
+            display: inline-block;
+            vertical-align: middle;
+            width: 60px;
+        }
+        .card {
+            &-title {
+                &, & + p {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

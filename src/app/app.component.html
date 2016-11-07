@@ -1,0 +1,37 @@
+<!--Main Container-->
+<div class="container">
+    <!--Header and Navigation-->
+    <header class="header main clearfix">
+        <h3 class="float-sm-left">{{projectTitle}}</h3>
+        <nav class="float-sm-right">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/list" routerLinkActive="active">Inventory</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/cart" routerLinkActive="active">Shopping Basket</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!--/Header and Navigation-->
+
+    <!--Breadcrumb-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">{{projectTitle}}</a></li>
+        <li class="breadcrumb-item active">{{pageTitle}}</li>
+    </ol>
+    <!--Breadcrumb-->
+
+    <!--Content Rendering-->
+    <router-outlet></router-outlet>
+    <!--/Content Rendering-->
+
+    <!--Footer-->
+    <hr />
+    <footer class="footer">
+        <p>&copy; AMarcello 2016</p>
+    </footer>
+    <!--/Footer-->
+</div>
+<!--/Main Container-->

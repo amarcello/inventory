@@ -1,0 +1,21 @@
+<div class="alert alert-danger" *ngIf="!cart.length || cartTotal < 1">
+    <strong>Your cart is empty</strong>
+</div>
+<div class="table-responsive" *ngIf="cart.length && cartTotal > 0">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="col-xs-5">Product</th>
+                <th class="col-xs-5">Quantity</th>
+                <th class="col-xs-2 text-center">Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of cart" [ngClass]="{'hidden': item.qty < 1}">
+                <td class="col-xs-5">{{getDetails(item.id).name}}</td>
+                <td class="col-xs-5">{{item.qty}}</td>
+                <td class="col-xs-2 text-center"><button class="btn btn-sm rounded-circle btn-danger" (click)="updateCart(item.id, item.qty, 'del'); $event.stopPropagation()">X</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

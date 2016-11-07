@@ -1,0 +1,18 @@
+<!--SHOW/HIDE 'ADD NEW PRODUCT' FORM-->
+<button type="button" class="btn-actions btn btn-block"
+    [ngClass]="{'btn-outline-primary': !isAdding, 'btn-outline-danger': isAdding}"
+    (click)="addForm()">{{isAdding ? 'Cancel' : 'Add'}} New Item
+</button>
+<!--/SHOW/HIDE 'ADD NEW PRODUCT' FORM-->
+<!--SHOW 'ADD NEW PRODUCT' FORM IF IT'S ACTIVE-->
+<add-item *ngIf="isAdding"></add-item>
+<!--/SHOW 'ADD NEW PRODUCT' FORM IF IT'S ACTIVE-->
+<!--SHOW ALL INVENTORY-->
+<div class="wrapper">
+    <div class="row inventory">
+        <div *ngFor="let item of inventory" class="col-xs-12 col-md-4 col-lg-3">
+            <inventory-item [item]="item"></inventory-item>
+        </div>
+    </div>
+</div>
+<!--/SHOW ALL INVENTORY-->

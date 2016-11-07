@@ -1,0 +1,25 @@
+<div class="jumbotron">
+    <form [formGroup]="addItem">
+        <div class="form-group" [ngClass]="{'has-error':!addItem.controls['name'].valid && addItem.controls['name'].touched}">
+            <label>Product Title*</label>
+            <input class="form-control" type="text" placeholder="Enter a Product Title" [formControl]="addItem.controls['name']">
+            <div *ngIf="addItem.controls['name'].hasError('required') && addItem.controls['name'].touched" class="alert alert-danger">You must set a valid Product Title.</div>
+            <div *ngIf="addItem.controls['name'].hasError('minlength') && addItem.controls['name'].touched" class="alert alert-danger">Your Product Title must be at least 2 characters long.</div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error':!addItem.controls['qty'].valid && addItem.controls['qty'].touched}">
+            <label>Stock Quantity*</label>
+            <input class="form-control" type="number" min="1" placeholder="Enter the stock quantity" [formControl]="addItem.controls['qty']">
+            <div *ngIf="addItem.controls['qty'].hasError('required') && addItem.controls['qty'].touched" class="alert alert-danger">You must set a valid Stock Quantity.</div>
+            <div *ngIf="addItem.controls['qty'].hasError('pattern') && addItem.controls['qty'].touched" class="alert alert-danger">Your Stock Quantity should have at least 1 item.</div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error':!addItem.controls['price'].valid && addItem.controls['price'].touched}">
+            <label>Item Price*</label>
+            <input class="form-control" type="text" placeholder="Enter the unit price in the format 0,000.00" [formControl]="addItem.controls['price']">
+            <div *ngIf="addItem.controls['price'].hasError('required') && addItem.controls['price'].touched" class="alert alert-danger">You must set a valid Item Price.</div>
+            <div *ngIf="addItem.controls['price'].hasError('pattern') && addItem.controls['price'].touched" class="alert alert-danger">Your Item Price format must match a valid currency number without thousandos separator, i.e.: 1200, 1200.00)</div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" (click)="addForm(addItem.value)" [disabled]="!addItem.valid">Add Item</button>
+        </div>
+    </form>
+</div>

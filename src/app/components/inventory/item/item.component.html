@@ -1,0 +1,12 @@
+<div class="card" [ngClass]="{'disabled': item.qty < 1}"><!--ADD DISABLE CLASS IF PRODUCT IS OUT OF STOCK-->
+    <div class="card-block">
+        <h4 class="card-title">{{item.name}}</h4>
+        <p *ngIf="item.qty > 0">{{item.qty}} items in Stock for ${{item.price}}/unit</p>
+        <p *ngIf="item.qty <= 0">Sold out</p>
+    </div>
+    <div class="card-block">
+        <input type="hidden" value="{{item.id}}" />
+        <input class="form-control form-control-sm" value="1" min="0" max="{{item.qty}}" type="number" [disabled]="item.qty < 1" #itemQty />
+        <button class="btn btn-sm btn-outline-success" (click)="updateCart(item.id, itemQty.value, 'add'); $event.stopPropagation()" [disabled]="item.qty < 1">Add to Cart</button>
+    </div>
+</div>
