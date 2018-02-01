@@ -1,7 +1,7 @@
-## Inventory (Angular2 + Bootsrap 4)
+## Inventory (Angular 5 + Bootsrap 4)
 
 ## Requirements
-Node.js is required for this project. (version **6.9.1** is required).
+Node.js is required for this project. (version **8.9.4** is required).
 
 For instructions about installing: [Node.js Official Website](https://nodejs.org/en/)
 
