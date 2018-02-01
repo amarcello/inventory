@@ -13,8 +13,9 @@ export class AppComponent {
     projectTitle    : string = 'My Inventory';  //The project's title;
 
     constructor(private router: Router){
+
         this.router.events.subscribe((val) => {
-            this.pageTitle = (val.url.includes('cart')) ? 'Shopping Basket' : 'All Products';
+            this.pageTitle = (this.router.url.includes('cart')) ? 'Shopping Basket' : 'All Products';
         });
     }
 }
